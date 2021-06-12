@@ -46,8 +46,8 @@ const getFilmeById= async (req, res) => {
 
        
     } catch (err) {
-        const erro = err.message;
-        return res.status(500).json({ message:  `Não foi possivel concluir a solicitação erro: ${erro}` })
+       
+        return res.status(500).json({ message:  `Não foi possivel concluir a solicitação erro: ${err.message}` })
     }
     
 }
@@ -78,7 +78,7 @@ const updateById = async (req, res) => {
         const update = await filme.save()
         res.json(update)    
     } catch (err) {
-        return res.status(500).json({ message: `Não foi possivel concluir a solicitação erro: ${erro}` })
+        return res.status(500).json({ message: `Não foi possivel concluir a solicitação erro: ${err.message}` })
     }
 }
 
@@ -93,7 +93,7 @@ const deleteById = async(req, res)=>{
         await filme.remove()
         res.json({ message: 'Deletado!'})    
     } catch (err) {
-        return res.status(500).json({ message:  `Não foi possivel concluir a solicitação erro: ${erro}` })
+        return res.status(500).json({ message:  `Não foi possivel concluir a solicitação erro: ${err.message}` })
     }
 
 
